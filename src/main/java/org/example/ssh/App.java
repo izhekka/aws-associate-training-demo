@@ -18,7 +18,7 @@ public class App {
   public static void main(String[] args) throws InvalidPassphraseException, IOException, SshException {
     final SshKeyPair pair = SshKeyUtils.getRSAPrivateKeyWithSHA256Signature(new File(PRIVATE_KEY), null);
 
-    try (SshClient ssh = new SshClient(HOST, PORT, USER, pair)) {
+    try (final SshClient ssh = new SshClient(HOST, PORT, USER, pair)) {
       final String result = ssh.executeCommand("pwd");
       System.out.println(result);
     }

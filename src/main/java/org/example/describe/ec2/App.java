@@ -8,6 +8,8 @@ import software.amazon.awssdk.services.ec2.model.DescribeInstancesResponse;
 import software.amazon.awssdk.services.ec2.model.Instance;
 import software.amazon.awssdk.services.ec2.model.Reservation;
 
+import static org.example.utils.StringUtils.optional;
+
 public class App {
 
   public static void main(String[] args) {
@@ -35,14 +37,16 @@ public class App {
           .maxResults(10)
           .nextToken(nextToken)
           .build();
-      DescribeInstancesResponse response = client.describeInstances(request);
+      final DescribeInstancesResponse response = client.describeInstances(request);
 
       for (final Reservation reservation : response.reservations()) {
         for (final Instance instance : reservation.instances()) {
           System.out.println("Instance Id: " + instance.instanceId());
-          System.out.println("Instance type: " + instance.instanceType());
-          System.out.println("Instance private IP: " +  instance.privateIpAddress());
-          System.out.println("Instance state: " +  instance.state().name());
+          System.out.println("  type: " + instance.instanceType());
+          System.out.println("  private IP: " +  instance.privateIpAddress());
+          System.out.println("  public IP: " +  optional(instance.publicIpAddress()));
+          System.out.println("  public DNS name: " +  optional(instance.publicDnsName()));
+          System.out.println("  state: " +  instance.state().name());
         }
       }
 
