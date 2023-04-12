@@ -29,6 +29,7 @@
   </dependencyManagement>
 
   <dependencies>
+    <!-- SSH -->
     <dependency>
       <groupId>com.sshtools</groupId>
       <artifactId>maverick-base</artifactId>
@@ -40,9 +41,28 @@
       <version>3.0.10</version>
     </dependency>
 
+    <!-- AWS SDK -->
     <dependency>
       <groupId>software.amazon.awssdk</groupId>
       <artifactId>ec2</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>software.amazon.awssdk</groupId>
+      <artifactId>secretsmanager</artifactId>
+    </dependency>
+
+    <!-- Jackson -->
+    <dependency>
+      <groupId>com.fasterxml.jackson.core</groupId>
+      <artifactId>jackson-databind</artifactId>
+      <version>2.14.2</version>
+    </dependency>
+
+    <!-- MySQL -->
+    <dependency>
+      <groupId>mysql</groupId>
+      <artifactId>mysql-connector-java</artifactId>
+      <version>8.0.32</version>
     </dependency>
   </dependencies>
 </project>
