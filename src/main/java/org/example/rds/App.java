@@ -12,7 +12,7 @@ import java.sql.*;
 
 public class App {
 
-  private static final String SECRET_NAME = "DatabaseDBSecretD08C53F5-ovsWhQkhDwSN";
+  private static final String SECRET_NAME = "secret_name";
 
   public static void main(String[] args) {
     try {
